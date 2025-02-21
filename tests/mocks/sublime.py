@@ -1,13 +1,17 @@
 """Mock sublime module for testing."""
 
+
 class Region:
     """Mock Region class."""
+
     def __init__(self, a, b=None):
         self.a = a
         self.b = b if b is not None else a
 
+
 class View:
     """Mock View class."""
+
     def __init__(self):
         self._file_name = None
         self._is_scratch = False
@@ -36,16 +40,20 @@ class View:
             self._content += args["characters"]
             self._size = len(self._content)
 
+
 def load_settings(settings_file):
     """Mock settings loader."""
     return Settings()
+
 
 def error_message(message):
     """Mock error message display."""
     pass
 
+
 class Settings:
     """Mock Settings class."""
+
     def __init__(self):
         self._settings = {
             "save_directory": "~/scratch",
@@ -53,7 +61,7 @@ class Settings:
             "insert_timestamp": True,
             "timestamp_format": "%Y_%m_%d_%H%M%S",
             "use_microseconds": False,
-            "default_extension": "md"
+            "default_extension": "md",
         }
 
     def get(self, key, default=None):
