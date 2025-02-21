@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "autosave-sublime"
 version = "0.1.0"
@@ -5,25 +9,16 @@ description = "A Sublime Text plugin that automatically saves new empty files wi
 authors = [
     { name = "Mark", email = "mark@marknorgren.com" }
 ]
-dependencies = []
 requires-python = ">=3.8"
 readme = "README.md"
 license = { text = "MIT" }
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
 [project.urls]
 Homepage = "https://github.com/marknorgren/AutoSaveScratch"
 Repository = "https://github.com/marknorgren/AutoSaveScratch.git"
+
+[tool.setuptools.packages.find]
+include = ["autosave_sublime*"]
 
 [tool.black]
 line-length = 100

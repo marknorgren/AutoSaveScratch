@@ -18,34 +18,53 @@ A Sublime Text plugin that automatically saves new empty files with timestamp-ba
 - Customizable timestamp formats
 - Handles file naming conflicts
 
-## Quick Install
+## Installation
 
-### Using pip (Recommended)
+### Quick Install (Recommended)
 
 ```bash
-pip install git+https://github.com/marknorgren/AutoSaveScratch.git
-python -m autosave_sublime.setup
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/marknorgren/AutoSaveScratch/main/install.sh)"
 ```
+
+This will:
+
+- Install the plugin in your Sublime Text Packages directory
+- Create the default scratch directory
+- Set up default configuration
 
 ### Manual Installation
 
-1. Download or clone this repository
-2. Run the installation script:
+If you prefer to install manually, you can:
+
+1. Locate your Sublime Text Packages directory:
+
+   - macOS: `~/Library/Application Support/Sublime Text/Packages/`
+   - Windows: `%APPDATA%\Sublime Text\Packages\`
+   - Linux: `~/.config/sublime-text/Packages/`
+
+2. Clone the repository:
+
    ```bash
-   python install.py
+   git clone https://github.com/marknorgren/AutoSaveScratch.git "AutoSaveNewFiles"
    ```
-3. Restart Sublime Text
+
+3. Create the scratch directory:
+
+   ```bash
+   mkdir ~/scratch
+   ```
+
+4. Restart Sublime Text
 
 The installation will automatically:
 
-- Detect your Sublime Text Packages directory
-- Copy the plugin file to the correct location
+- Set up the plugin in the correct location
 - Create default configuration
 - Set up the scratch directory
 
 ## Configuration
 
-Create `AutoSaveNewFiles.sublime-settings` with the following settings:
+The plugin uses these default settings:
 
 ```json
 {
@@ -58,14 +77,7 @@ Create `AutoSaveNewFiles.sublime-settings` with the following settings:
 }
 ```
 
-### Settings Explained
-
-- `save_directory`: Path where new files will be saved (defaults to ~/scratch)
-- `filename_format`: Format for new filenames (uses {timestamp} and {extension} placeholders)
-- `insert_timestamp`: Whether to insert timestamp at the start of new files (true/false)
-- `timestamp_format`: Python datetime format for timestamps
-- `use_microseconds`: Whether to include microseconds in timestamps (true/false)
-- `default_extension`: Default file extension for new files (without the dot)
+To customize, create `Packages/User/AutoSaveNewFiles.sublime-settings` with your preferred settings.
 
 ## Usage
 
@@ -130,45 +142,23 @@ To enable debug logging:
 
 To set up a development environment:
 
-1. Install `just` command runner:
-
-   ```bash
-   # macOS
-   brew install just
-
-   # Linux
-   curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash
-   ```
-
-2. Clone the repository:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/marknorgren/AutoSaveScratch.git
    cd AutoSaveScratch
    ```
 
-3. Set up the development environment:
+2. Set up the development environment:
+
    ```bash
-   just setup
+   # Create and activate virtual environment
+   python3 -m venv .venv
+   source .venv/bin/activate
+
+   # Install development tools
+   pip install black ruff
    ```
-
-### Common Development Tasks
-
-Use `just` commands to manage development tasks:
-
-```bash
-just                 # List all available commands
-just setup          # Install development dependencies
-just format         # Format code with black
-just lint           # Run ruff linter
-just check          # Run all checks (format and lint)
-just fix            # Fix formatting and linting issues
-just clean          # Clean up cache files
-just install        # Install plugin in Sublime Text
-just uninstall      # Remove plugin from Sublime Text
-just test           # Run complete test cycle
-just branch name    # Create a new feature branch
-```
 
 ### Code Style
 
@@ -180,24 +170,9 @@ This project uses:
 
 ### Making Changes
 
-1. Create a new branch:
-
-   ```bash
-   just branch feature-name
-   ```
-
-2. Make your changes and ensure they pass all checks:
-
-   ```bash
-   just check
-   ```
-
-3. Test the plugin:
-
-   ```bash
-   just test
-   ```
-
+1. Create a new branch for your changes
+2. Make your changes and ensure they pass formatting and linting checks
+3. Test the plugin in Sublime Text
 4. Submit a pull request with your improvements
 
 ## License
