@@ -1,21 +1,20 @@
 """Tests for configuration handling."""
 
-import os
+import datetime
 import json
-import sys
+import os
 import shutil
+import sys
 from pathlib import Path
 
 # Add mocks directory to Python path
 sys.path.insert(0, str(Path(__file__).parent / "mocks"))
 
-from autosave_sublime.auto_save_new_files import AutoSaveNewFilesCommand
 import sublime
 
 
 def test_default_config():
     """Test that default configuration is valid."""
-    cmd = AutoSaveNewFilesCommand()
     settings = {
         "save_directory": "~/scratch",
         "filename_format": "{timestamp}.{extension}",
@@ -47,11 +46,6 @@ def test_default_config():
 
 def test_timestamp_format():
     """Test that timestamp formatting works correctly."""
-    import datetime
-
-    cmd = AutoSaveNewFilesCommand()
-    view = sublime.View()
-
     # Test without microseconds
     now = datetime.datetime(2024, 3, 19, 12, 34, 56)
     settings = {"timestamp_format": "%Y_%m_%d_%H%M%S", "use_microseconds": False}
@@ -70,7 +64,6 @@ def test_timestamp_format():
 def test_view_operations():
     """Test view operations with mock sublime.View."""
     view = sublime.View()
-    cmd = AutoSaveNewFilesCommand()
 
     # Test initial state
     assert view.file_name() is None
