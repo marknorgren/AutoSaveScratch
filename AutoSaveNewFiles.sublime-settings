@@ -1,0 +1,8 @@
+{
+  "save_directory": "~/scratch",
+  "filename_format": "{timestamp}.{extension}",
+  "insert_timestamp": true,
+  "timestamp_format": "%Y_%m_%d_%H%M%S",
+  "use_microseconds": false,
+  "default_extension": "md"
+}

@@ -24,4 +24,4 @@ You can expect:
 2. Regular updates on the progress of addressing the vulnerability
 3. Credit for the discovery (unless you prefer to remain anonymous)
 
-Thank you for helping keep AutoSaveNewFiles secure!
+Thank you for helping keep AutoSaveNewFiles secure 👀!
