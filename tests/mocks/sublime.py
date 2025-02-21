@@ -65,4 +65,4 @@ class Settings:
         }
 
     def get(self, key, default=None):
-        return self._settings.get(key, default) 
+        return self._settings.get(key, default)

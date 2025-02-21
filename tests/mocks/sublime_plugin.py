@@ -4,4 +4,4 @@
 class EventListener:
     """Mock EventListener class."""
 
-    pass 
+    pass
