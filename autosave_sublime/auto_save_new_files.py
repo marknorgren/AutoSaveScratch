@@ -14,7 +14,6 @@ License: MIT
 
 import datetime
 import os
-from typing import Dict, Set
 
 import sublime
 import sublime_plugin
@@ -48,8 +47,8 @@ class AutoSaveNewFilesCommand(sublime_plugin.EventListener):
 
     def __init__(self):
         """Initialize the plugin with empty tracking collections."""
-        self.saved_files: Set[str] = set()
-        self.file_timestamps: Dict[str, str] = {}
+        self.saved_files = set()  # type: Set[str]
+        self.file_timestamps = {}  # type: Dict[str, str]
 
     def on_new_async(self, view: sublime.View) -> None:
         """Handle new file creation events."""

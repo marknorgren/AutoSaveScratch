@@ -57,7 +57,7 @@ def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Copy plugin file
-    plugin_src = os.path.join(current_dir, "auto_save_new_files.py")
+    plugin_src = os.path.join(current_dir, "autosave_sublime", "auto_save_new_files.py")
     plugin_dst = os.path.join(user_dir, "auto_save_new_files.py")
 
     try:
